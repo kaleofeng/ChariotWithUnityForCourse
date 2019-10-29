@@ -66,7 +66,9 @@
      <Compile Include="Assets\Scripts\ScreenScanner.cs" />
      <Compile Include="Assets\Scripts\StartController.cs" />
      <Compile Include="Assets\Scripts\StringProvider.cs" />
+     <None Include="Assets\Resources\langs\en_US.txt" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\Resources\langs\zh_CN.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Dimension/Source/Unity/ChariotNew/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

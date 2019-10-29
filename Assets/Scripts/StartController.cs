@@ -68,10 +68,18 @@ public class StartController : MonoBehaviour {
         loadingSlider.gameObject.SetActive(false);
         gameName.DOMoveY(gameNamePosition.y, 2).SetEase(Ease.InOutBack);
         gamePlay.DOMoveY(gamePlayPosition.y, 2).SetEase(Ease.InOutBack);
+
+        var gameNameString = StringProvider.Instance.GetString("gameName");
+        var gameNamePath = string.Format("images/{0}", gameNameString);
+        gameName.GetComponent<Image>().sprite = Resources.Load<Sprite>(gameNamePath);
+
+        var playString = StringProvider.Instance.GetString("play");
+        gamePlay.GetComponentInChildren<Text>().text = playString;
     }
 
     private IEnumerator LoadAsync() {
         // Loaded something
+        StringProvider.Instance.LoadAll();
         maxProgress = 100;
         yield return null;
     }
