@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartController : MonoBehaviour {
@@ -17,6 +18,7 @@ public class StartController : MonoBehaviour {
     private Vector3 gamePlayPosition;
 
     private int stage;
+    private AsyncOperation asyncOperation;
 
     // Start is called before the first frame update
     void Start() {
@@ -47,7 +49,16 @@ public class StartController : MonoBehaviour {
         }
     }
 
+    public void OnGamePlayClick() {
+        asyncOperation.allowSceneActivation = true;
+    }
+
     private void LoadingUpdate() {
+        if (asyncOperation != null) {
+            var progress = Mathf.FloorToInt(asyncOperation.progress * 100);
+            maxProgress = progress < 90 ? progress : 100;
+        }
+
         if (curProgress < maxProgress) {
             curProgress += 1;
         }
@@ -78,9 +89,19 @@ public class StartController : MonoBehaviour {
     }
 
     private IEnumerator LoadAsync() {
-        // Loaded something
+        yield return LoadInfo();
+        yield return LoadUI();
+    }
+
+    private IEnumerator LoadInfo() {
         StringProvider.Instance.LoadAll();
-        maxProgress = 100;
+        maxProgress = 50;
+        yield return null;
+    }
+
+    private IEnumerator LoadUI() {
+        asyncOperation = SceneManager.LoadSceneAsync("play");
+        asyncOperation.allowSceneActivation = false;
         yield return null;
     }
 }
