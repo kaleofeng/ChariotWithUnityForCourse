@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\ScreenScanner.cs" />
      <Compile Include="Assets\Scripts\StartController.cs" />
      <Compile Include="Assets\Scripts\StringProvider.cs" />
+     <Compile Include="Assets\Scripts\units\Road.cs" />
      <None Include="Assets\Resources\langs\en_US.txt" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Resources\langs\zh_CN.txt" />
