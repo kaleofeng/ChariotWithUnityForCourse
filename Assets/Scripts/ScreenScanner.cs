@@ -9,6 +9,7 @@ public class ScreenScanner : MonoBehaviour {
 
         var rect = GetComponent<RectTransform>().rect;
         ScreenAdapter.Setup(rect.width, rect.height, Screen.width, Screen.height);
+        WorldConstant.Setup();
     }
 
     // Start is called before the first frame update

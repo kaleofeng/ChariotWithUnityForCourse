@@ -62,7 +62,12 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+     <Compile Include="Assets\Scripts\Constant.cs" />
+     <Compile Include="Assets\Scripts\Define.cs" />
+     <Compile Include="Assets\Scripts\game\GameWorld.cs" />
      <Compile Include="Assets\Scripts\helper\ScreenAdapter.cs" />
+     <Compile Include="Assets\Scripts\helper\WorldConstant.cs" />
+     <Compile Include="Assets\Scripts\PlayController.cs" />
      <Compile Include="Assets\Scripts\ScreenScanner.cs" />
      <Compile Include="Assets\Scripts\StartController.cs" />
      <Compile Include="Assets\Scripts\StringProvider.cs" />
