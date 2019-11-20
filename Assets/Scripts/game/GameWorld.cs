@@ -9,15 +9,21 @@ public class GameWorld {
 
     public PlayController Stage { get; private set; }
     public Hero Hero { get; private set; }
+    public EntityManager<Barrier> BarrierManager { get; private set; }
+
+    private WorldCreator creator;
 
     private EGameState state;
 
     public void Setup(PlayController playController) {
         Stage = playController;
+        creator = new WorldCreator();
+        creator.Setup(this, Stage);
     }
 
     public void Start() {
         Hero = Stage.GetComponentInChildren<Hero>();
+        BarrierManager = new EntityManager<Barrier>();
 
         state = EGameState.PAUSE;
     }
@@ -26,6 +32,9 @@ public class GameWorld {
         if (!IsRunning()) {
             return;
         }
+
+        creator.Update();
+        BarrierManager.Update();
     }
 
     public void Pause() {
@@ -52,5 +61,9 @@ public class GameWorld {
 
     public bool IsRunning() {
         return EGameState.RUNNING == state;
+    }
+
+    public void IncDistance(float delta) {
+        GameData.Instance.Distance += delta;
     }
 }

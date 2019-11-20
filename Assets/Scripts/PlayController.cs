@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 
 public class PlayController : MonoBehaviour {
 
+    public Canvas barrierCanvas;
+
+    public GameObject barrierPrefab;
+
     private Vector3 mousePositionLast;
 
     void Awake() {
