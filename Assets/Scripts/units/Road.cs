@@ -20,6 +20,10 @@ public class Road : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if  (!GameWorld.Instance.IsRunning()) {
+            return;
+        }
+
         var deltaY = 500 * Time.deltaTime;
         var deltaPos = Vector3.down * deltaY;
         road1.Translate(deltaPos, Space.World);
